@@ -1,5 +1,6 @@
 import os
 import re
+from pathlib import Path
 
 def append_dir_to_file_name(filename, output_dir=None):
     """Append dir to file name and eventually create directory if not exist."""
@@ -33,3 +34,7 @@ def save_row_to_text_file(row, filename, output_dir=None):
         f.write(f"{row}\n")
 
     print(f"Data saved in the file '{filename}'.")
+
+def get_folder_list(path):
+    """Get the folders inside a path"""
+    return [d.name for d in path.iterdir() if d.is_dir()]
